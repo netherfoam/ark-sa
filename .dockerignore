@@ -1,0 +1,2 @@
+# Don't include this accidentally in the build context
+game/
