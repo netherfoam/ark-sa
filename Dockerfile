@@ -54,4 +54,4 @@ USER root
 RUN chmod ugo+x entrypoint.sh
 USER steam:steam
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

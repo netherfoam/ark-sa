@@ -24,6 +24,9 @@ if it is not present already.
 # Create the game directory to mount, if it doesn't exist
 mkdir -p ./game
 
+# Set owner of the directory to steam
+sudo chown 1000:1000 ./game
+
 docker run --mount type=bind,source=./game,target=/game ark-sa
 ```
 
