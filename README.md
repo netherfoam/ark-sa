@@ -9,16 +9,25 @@ be much more performant.
 
 ## Requisites
 * Docker (I'm running 24.0.6)
+* An obnoxious amount of memory for a server (~12GB?)
 
 ## Building
 ```
 docker build . -t ark-sa
 ```
 
+The image does not contain an Ark SA Server. Once it is first run, SteamCmd is used to download the server automatically,
+if it is not present already.
+
 ## Running
 ```
+# Create the game directory to mount, if it doesn't exist
+mkdir -p ./game
+
 docker run --mount type=bind,source=./game,target=/game ark-sa
 ```
+
+The mounted directory will have Ark SA downloaded into it if it is missing.
 
 ### Runtime options
 | Environment Variable | Default             | Description |
