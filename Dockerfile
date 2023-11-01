@@ -12,8 +12,8 @@ RUN sed -i 's#^Components: .*#Components: main non-free contrib#g' /etc/apt/sour
 RUN curl -s http://repo.steampowered.com/steam/archive/stable/steam.gpg > /usr/share/keyrings/steam.gpg \
     && echo "deb [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] http://repo.steampowered.com/steam/ stable steam" > /etc/apt/sources.list.d/steam.list \
     # Auto agree to Steam license
-    && echo steam steam/question select "I AGREE" | sudo debconf-set-selections \
-    && echo steam steam/license note '' | sudo debconf-set-selections \
+    && echo steam steam/question select "I AGREE" | debconf-set-selections \
+    && echo steam steam/license note '' | debconf-set-selections \
     && apt-get update \
     && apt-get install -y lib32gcc-s1 steamcmd steam-launcher
 

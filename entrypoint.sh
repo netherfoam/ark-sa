@@ -13,4 +13,4 @@ export STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAMDIR"
 export STEAM_COMPAT_DATA_PATH="$STEAMDIR/steamapps/compatdata/2430930"
 
 cd "/game/ShooterGame/Binaries/Win64"
-$STEAMDIR/compatibilitytools.d/$PROTON_NAME/proton run ArkAscendedServer.exe $LAUNCH_ARGS
+exec $STEAMDIR/compatibilitytools.d/$PROTON_NAME/proton run ArkAscendedServer.exe $LAUNCH_ARGS
