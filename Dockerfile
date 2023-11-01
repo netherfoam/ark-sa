@@ -23,7 +23,7 @@ ENV PROTON_TGZ="${PROTON_NAME}.tar.gz"
 
 # TODO: Use curl instead
 RUN mkdir -p /opt/game-resources
-RUN curl $PROTON_URL -o "/opt/game-resources/$PROTON_TGZ"
+RUN curl $PROTON_URL -L -o "/opt/game-resources/$PROTON_TGZ"
 
 # Create the Steam user. Everything from here is done as this steam user.
 RUN useradd -m -U steam -u 1000
@@ -34,6 +34,7 @@ USER steam:steam
 
 RUN /usr/games/steamcmd +login anonymous +quit
 ENV STEAMDIR="/home/steam/.local/share/Steam"
+RUN echo "PROTON_TGZ: $PROTON_TGZ"
 RUN mkdir -p "$STEAMDIR/compatibilitytools.d" \
     && tar -x -C "$STEAMDIR/compatibilitytools.d/" -f "/opt/game-resources/$PROTON_TGZ" \
     && mkdir -p "$STEAMDIR/steamapps/compatdata" \
