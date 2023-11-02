@@ -19,7 +19,7 @@ tail -f /game/ShooterGame/Saved/Logs/ShooterGame.log -n 0 &
 
 cd "/game/ShooterGame/Binaries/Win64"
 
-handle_term() {
+handle_sigterm() {
     echo "Forwarding SIGTERM"
     kill -TERM $child 2>/dev/null
     wait $child
@@ -28,6 +28,7 @@ handle_term() {
 $STEAMDIR/compatibilitytools.d/$PROTON_NAME/proton run ArkAscendedServer.exe $LAUNCH_ARGS &
 
 child=$!
-trap handle_term SIGTERM
+trap handle_sigterm SIGTERM
+trap handle_sigint SIGINT
 
 wait $child
