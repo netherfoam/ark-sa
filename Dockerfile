@@ -47,8 +47,9 @@ ENV STEAM_COMPAT_DATA_PATH="$STEAMDIR/steamapps/compatdata/2430930"
 ADD entrypoint.sh /entrypoint.sh
 
 # Launch args like TheIsland_WP?listen?SessionName=ARK_Server -NoBattlEye
-ENV LAUNCH_ARGS=TheIsland_WP?listen
-ENV SKIP_UPDATE=0
+ENV LAUNCH_ARGS=TheIsland_WP?listen -servergamelog -servergamelogincludetribelogs -ServerRCONOutputTribeLogs -NotifyAdminCommandsInChat -game -server -log
+ENV SKIP_STEAM=0
+ENV STEAM_ARGS=+force_install_dir /game/ +login anonymous +app_update 2430930 +quit
 
 USER root
 RUN chmod ugo+x entrypoint.sh

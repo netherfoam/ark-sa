@@ -2,10 +2,10 @@
 
 set -e
 
-if [ "$SKIP_UPDATE" -eq 0 ]; then
+if [ "$SKIP_STEAM" -eq 0 ]; then
     # Update steam, if required
     echo "Running app_update and validation"
-    /usr/games/steamcmd +force_install_dir /game/ +login anonymous +app_update 2430930 validate +quit
+    /usr/games/steamcmd $STEAM_ARGS
 fi
 
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
