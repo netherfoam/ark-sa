@@ -29,6 +29,6 @@ $STEAMDIR/compatibilitytools.d/$PROTON_NAME/proton run ArkAscendedServer.exe $LA
 
 child=$!
 trap handle_sigterm SIGTERM
-trap handle_sigint SIGINT
+trap handle_sigterm SIGINT
 
 wait $child
