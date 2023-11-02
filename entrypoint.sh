@@ -13,7 +13,7 @@ export STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAMDIR"
 export STEAM_COMPAT_DATA_PATH="$STEAMDIR/steamapps/compatdata/2430930"
 
 LOG_FILE=/game/ShooterGame/Saved/Logs/ShooterGame.log
-mkdir -p `basename $LOG_FILE`
+mkdir -p `dirname $LOG_FILE`
 touch $LOG_FILE
 tail -f /game/ShooterGame/Saved/Logs/ShooterGame.log -n 0 &
 
