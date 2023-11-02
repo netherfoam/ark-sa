@@ -20,7 +20,7 @@ tail -f /game/ShooterGame/Saved/Logs/ShooterGame.log -n 0 &
 cd "/game/ShooterGame/Binaries/Win64"
 
 handle_sigterm() {
-    echo "Forwarding SIGTERM"
+    echo "Forwarding $@"
     kill -TERM $child 2>/dev/null
     wait $child
 }
